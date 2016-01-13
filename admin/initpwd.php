@@ -2,18 +2,19 @@
 session_start();
 
 require_once 'inc/dbconnect.php';
+	$post = array();
+	$err = array();
 
 	if(isset($_GET['token'])){
 			$prep = $bdd->prepare('SELECT * FROM tokens WHERE token = :token');
 			$prep->bindValue(':token',$_GET['token'], PDO::PARAM_STR);
 			$prep->execute();
-			$verifToken = $prep->fetchAll(PDO::FETCH_ASSOC);
+			$verifToken = $prep->fetch(PDO::FETCH_ASSOC);
 			if (empty($verifToken)){
+				echo var_dump($verifToken);
 				header('Location: tokenpwd.php');
 				die;
 			} else {
-				$post = array();
-				$err = array();
 
 				if (!empty($_POST)) {
 					foreach ($_POST as $key => $value) {

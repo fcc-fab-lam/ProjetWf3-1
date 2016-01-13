@@ -16,22 +16,30 @@ if (!empty($_POST)) {
 		$err[]='le mot de passe est obligatoire';
 	} 			
 	if(empty($post['password']) || strlen($post['password']) < 8){
-		$err[]='ton mode de passe doit avoir 8 caracteres minimum';
+		$err[]='ton mot de passe doit avoir 8 caracteres minimum';
 	} else{
-			$prep = $bdd->prepare('SELECT * FROM users WHERE password = :password');
-			$prep->bindValue(':password', password_hash($post['oldpwd'], PASSWORD_DEFAULT), PDO::PARAM_STR);
-			$prep->execute();
-			$verifPwd = $prep->fetch(PDO::FETCH_ASSOC);
-			if (empty($verifPwd)){
-				$err[]= 'ton mot de passe est incorrect';
-			} else{
-					$prep2 = $bdd->prepare('UPDATE users SET password=:password WHERE id=:userId');
-					$prep2->bindValue(':userId', $_SESSION['userId'], PDO::PARAM_STR);
-					$prep2->bindValue(':password', password_hash($post['password'], PASSWORD_DEFAULT));
-					if($prep2->execute()){
-						header('Location: index.php');
+			$prep = $bdd->prepare('SELECT * FROM users WHERE id=:userId LIMIT 1');
+			$prep->bindValue(':userId', $_SESSION['userId'], PDO::PARAM_STR);
+			if($prep->execute()){
+					$verifPwd = $prep->fetch(PDO::FETCH_ASSOC);
+					if(password_verify($post['oldpwd'], $verifPwd['password'])){
+
+						$prep2 = $bdd->prepare('UPDATE users SET password=:password WHERE id=:userId');
+						$prep2->bindValue(':userId', $_SESSION['userId'], PDO::PARAM_STR);
+						$prep2->bindValue(':password', password_hash($post['password'], PASSWORD_DEFAULT));
+						if($prep2->execute()){
+							
+							header('Location: index.php');
+						}
 					}
-				}
+					else {
+						// MDP KO
+					}
+
+			} 
+			else{
+				// Requete SQL KO
+			}
 		}
 }
 
