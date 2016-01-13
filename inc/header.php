@@ -15,9 +15,9 @@
 		</div>
 			<nav>
 				<ul> 
-					<li><a href="#accueil">accueil</a></li>
-					<li><a href="#news">les news</a></li>
-					<li><a href="#contact">contact</a></li>
+					<li><a href="index.php">accueil</a></li>
+					<li><a href="article.php">les news</a></li>
+					<li><a href="contact.php">contact</a></li>
 				</ul>
 			</nav>	
 	</div>

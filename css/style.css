@@ -108,3 +108,11 @@ main{
 	padding: 40px;
 	text-align: justify;
 }
+
+form{
+	padding: 40px;
+}
+
+input{
+	margin-bottom: 20px;
+}
