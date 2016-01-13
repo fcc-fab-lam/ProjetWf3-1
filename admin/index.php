@@ -9,13 +9,19 @@ $error = array();
 $emailExiste = false;
 if(!empty($_POST)){
 	foreach ($_POST as $key => $value) {
-		$post[$key] = strip_tags(trim($value));
+        
+        // On devrait plutôt faire l'inverse, c'est à dire : trim(strip_tags());
+        
+        // trim retire les espaces en début et fin de chaine, strip_tags le HTML / PHP
+        // dans ton cas, une chaine type "<p> Hello </p>" sortira de cette manière : " Hello "
+        
+		$post[$key] = strip_tags(trim($value)); 
 	}
 	if(empty($post['email'])){
 		$error[] = 'L\'adresse email est vide'.PHP_EOL;
 	}
 	elseif(!filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
-			$error[] = 'L\'adresse email est incorrecte'.PHP_EOL;	
+        $error[] = 'L\'adresse email est incorrecte'.PHP_EOL;	
 	}
     else{
         $checkEmail = $bdd->prepare('SELECT * FROM users WHERE email = :email');
@@ -59,7 +65,7 @@ if(!empty($_POST)){
 		$errorsForm = true;
 	}
 	else {
-        header('location: accueil.php');
+        header('Location: accueil.php');
 	}
 }
 ?>
