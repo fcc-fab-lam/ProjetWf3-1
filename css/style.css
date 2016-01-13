@@ -89,8 +89,9 @@ a{
 
 main{
 	float: right;
-	width: 85%;
-	min-width: calc(100% - 250px);
+	width: 100%;
+	padding-left: 250px;
+
 }
 
 #slider{
