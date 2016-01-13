@@ -15,6 +15,9 @@
 		<div id="art">
 		<p>Ecrivez votre article</p>
 		</div>
+		<div id="date">
+		<p> nous sommes le  et il est </p> 
+		</div>
 
 
 <form method="get">
