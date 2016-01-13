@@ -19,16 +19,92 @@ body {
 h1{
 	font-family: "Lora";
 	font-size: 3.000em;
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 30px;
 
+}
+
+h2{
+	font-family: "Lora";
+	font-size: 2em;
+	text-align: center;
+	color : #046380;
+	padding-bottom: 30px;
+}
+
+h3{
+	font-family: "Lora";
+	font-size: 1.5em;
+	text-align: left;
+	color : #FF931C;
+	padding-bottom: 15px;
+
+}
+
+p{
+	font-size: 0.9em;
 }
 
 
 /* LAYOUT */
-html, body {
-    min-height: 100%;
+body {
+    height: 100vh;
 }
 
 #sommaire{
 	width: 15%;
+	min-width: 250px;
+	height: 100%;
 	background-color: #046380;
+	padding: 20px;
+	text-align: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+#avatar{
+	font-family: "Lora";
+	font-weight: 400;
+	color:#FFFFFF;
+	padding-bottom: 90px;
+	
+}
+
+#avatar img{
+	border-radius: 50%;
+	border: solid 3px #FFFFFF;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	width: 75%;
+}
+
+a{
+	text-decoration: none;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+
+
+main{
+	float: right;
+	width: 85%;
+	min-width: calc(100% - 250px);
+}
+
+#slider{
+	margin-bottom: 30px;
+}
+
+#news{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.article{
+	width: 50%;
+	float: left;
+	padding: 40px;
+	text-align: justify;
 }

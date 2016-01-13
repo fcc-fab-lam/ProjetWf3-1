@@ -2,13 +2,13 @@
 
 
 	<div id="slider">
-		<img src="#" alt="">
+		<img src="img/miamivice.jpg" alt="">
 	</div>
 
 	<section id="news">
 		<h2>Les News</h2>
 		<div class="article">
-			<h3> Nouvelle actu </h3>
+			<h3>Blackhat, film majeur</h3>
 			<p>comme en 2013, David Bowie n’a laissé à personne d’autre le soin de lancer la rentrée musicale pop rock.
 			Mais si Blackstar fait plus que jamais événement à l'aune de la disparisiton du chanteur, 
 			il n’éclipse pas pour autant la conséquente vague de sorties d’albums majeurs ou attendus
@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="article">
-			<h3> Nouvelle actu </h3>
+			<h3>Collateral, mon erreur</h3>
 			<p>comme en 2013, David Bowie n’a laissé à personne d’autre le soin de lancer la rentrée musicale pop rock.
 			Mais si Blackstar fait plus que jamais événement à l'aune de la disparisiton du chanteur, 
 			il n’éclipse pas pour autant la conséquente vague de sorties d’albums majeurs ou attendus
@@ -29,7 +29,7 @@
 
 
 		<div class="article">
-			<h3> Nouvelle actu </h3>
+			<h3>Miami Vice, mon chef d'oeuvre</h3>
 			<p>comme en 2013, David Bowie n’a laissé à personne d’autre le soin de lancer la rentrée musicale pop rock.
 			Mais si Blackstar fait plus que jamais événement à l'aune de la disparisiton du chanteur, 
 			il n’éclipse pas pour autant la conséquente vague de sorties d’albums majeurs ou attendus

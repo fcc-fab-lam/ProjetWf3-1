@@ -7,14 +7,15 @@
 </head>
 <body>
 	<div id="sommaire">
-		<div class= "avatar">
+		<div id= "avatar">
+			<img src="img/mm.jpg">
 			<p>Prénom NOM</p>
 			<p>Tél :</p>
 			<p>Email:</p> 
 		</div>
 			<nav>
 				<ul> 
-					<li><a href="#acceuil">acceuil</a></li>
+					<li><a href="#accueil">accueil</a></li>
 					<li><a href="#news">les news</a></li>
 					<li><a href="#contact">contact</a></li>
 				</ul>
@@ -22,4 +23,4 @@
 	</div>
 
 <main>
-	<h1>Mon ciné</h1>
+	<h1>Moi, Michael Mann, Dieu du cinéma</h1>
