@@ -41,6 +41,15 @@ if(!empty($_POST)){
                 'userId'  => $user['id'],
                 'email'  => $user['email'],
             );
+        
+            $checkRole = $bdd->prepare('SELECT * FROM role WHERE id_user = :userId');
+            $checkRole->bindValue(':userId', $user['id']);
+            $checkRole->execute();
+
+            $role = $checkRole->fetch(PDO::FETCH_ASSOC);
+
+            $_SESSION['role']  = $role['type'];
+            
         } else {
             $error[] = 'Le mot de passe est incorrect.'.PHP_EOL;
         }
