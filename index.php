@@ -1,6 +1,7 @@
-<?php 
-require_once 'inc/dbconnect.php';
-include_once 'inc/header.php'; 
+<?php
+    $titrePage = 'Accueil';
+    require_once 'inc/dbconnect.php';
+    include_once 'inc/header.php'; 
 
 	$rep = $bdd->prepare('SELECT * FROM news ORDER BY publication_date DESC LIMIT 6');
 	$rep->execute();

@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Accueil</title>
+    <title><?php echo $titrePage; ?></title>
 </head>
 <body>
 	<div id="search">

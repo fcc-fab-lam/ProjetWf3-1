@@ -1,6 +1,7 @@
 <?php
-require_once 'inc/dbconnect.php';
-include_once 'inc/header.php'; 
+    $titrePage = 'Articles';
+    require_once 'inc/dbconnect.php';
+    include_once 'inc/header.php'; 
 	$rep = $bdd->prepare('SELECT * FROM news');
 	$rep->execute();
 	$art2 = $rep->fetchAll(PDO::FETCH_ASSOC);
