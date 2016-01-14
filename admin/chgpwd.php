@@ -38,7 +38,7 @@ if (!empty($_POST)) {
 
 			} 
 			else{
-				header('Location: tokenpwd')
+				header('Location: tokenpwd');
 			}
 		}
 }
