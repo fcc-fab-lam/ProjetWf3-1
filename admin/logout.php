@@ -30,6 +30,7 @@ echo 'Voulez-vous vraiment vous deconnecter ?'
 if(isset($error)){
 	echo '<p class="error">'.$error.'</p>';
 }
+
 ?>
 
 <?php include_once 'inc/footer.php'; ?>

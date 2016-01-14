@@ -2,7 +2,7 @@
 require_once 'inc/dbconnect.php';
 include_once 'inc/header.php'; 
 
-	$rep = $bdd->prepare('SELECT * FROM news ORDER BY publication_date DESC LIMIT 5');
+	$rep = $bdd->prepare('SELECT * FROM news ORDER BY publication_date DESC LIMIT 6');
 	$rep->execute();
 	$art = $rep->fetchAll(PDO::FETCH_ASSOC);
 
