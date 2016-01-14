@@ -1,6 +1,6 @@
 <?php 
+	require_once  'inc/dbconnect.php';
 	include_once 'inc/header.php';
-  	require_once  'inc/dbconnect.php';
 ?>
 
 <h1> Contactez-nous!</h1>
