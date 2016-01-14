@@ -2,10 +2,17 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Accueil</title>
 </head>
 <body>
+	<div id="search">
+		<form method="get">
+	  		<input type="text" name="search" id="search" placeholder="votre recherche">
+	  		<button type="submit"><i class="fa fa-search"></i></button>
+		</form>
+	</div>
 	<div id="sommaire">
 		<div id= "avatar">
 			<img src="img/mm.jpg">
