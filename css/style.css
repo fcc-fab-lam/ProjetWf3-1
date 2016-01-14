@@ -103,11 +103,15 @@ main{
 	margin: 0 auto;
 }
 
-.article{
+article{
 	width: 50%;
 	float: left;
 	padding: 40px;
 	text-align: justify;
+}
+
+article a{
+	color : #FF931C;
 }
 
 form{
