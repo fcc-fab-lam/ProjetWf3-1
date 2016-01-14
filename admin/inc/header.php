@@ -18,6 +18,7 @@
             <?php endif; ?>
             <li><a href="chgpwd.php">Changer de mot de passe</a></li>
             <li><a href="addnews.php">Ajouter un article</a></li>
+            <li><a href="logout.php">Déconnexion</a></li>
         </ul>
     </nav>
     <?php endif; ?>

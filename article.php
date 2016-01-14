@@ -23,10 +23,10 @@ include_once 'inc/header.php';
 		<img src="#" alt="">
 		</div>
 
+
 		<article>
 			<p><?php echo $value['content'];?></p>
 		</article>
-
 	
 	<?php } ?>
 
@@ -34,7 +34,7 @@ include_once 'inc/header.php';
 
 <form method="get">
   		<label for="search">Votre recherche</label>
-  		<input type="text" name="search" id="search">
+  		<input type="text" name="search" id="search" placeholder="votre recherche">
   		<br><input type="submit" value="Envoyer"> 
 </form>
 
