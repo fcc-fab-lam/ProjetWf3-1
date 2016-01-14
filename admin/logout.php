@@ -25,7 +25,7 @@ echo 'Voulez-vous vraiment vous deconnecter ?'
 <a href="logout.php?logout=yes">Oui, je souhaite me déconnecter</a>
 <a href="logout.php?logout=no">Non, je ne souhaite pas me déconnecter</a>
 <?php 
-if(isset($error)):
+if(isset($error)){
 	echo '<p class="error">'.$error.'</p>';
 }
 ?>
