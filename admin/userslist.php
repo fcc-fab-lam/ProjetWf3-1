@@ -6,10 +6,10 @@ require_once 'inc/secure-admin.php';
 require_once 'inc/dbconnect.php';
 include_once 'inc/header.php';
 
-	$sql = 'SELECT u.email, r.type, u.id, r.id_user 
+	$sql = 'SELECT u.email, r.type
 			FROM users AS u
 			LEFT JOIN role AS r
-			ON u.id=r.id_user';
+			ON u.id_role=r.id';
 
 
 	$rep = $bdd->prepare($sql);

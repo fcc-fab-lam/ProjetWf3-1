@@ -21,6 +21,7 @@ if(isset($_SESSION['email'])){
             <li><a href="chgcover.php">Changer la couverture</a></li>
             <li><a href="chgprofil.php">Modifier le profil</a></li>
             <li><a href="readcontact.php">Voir les contacts</a></li>
+            <li><a href="userslist.php">Voir les utilisateurs</a></li>
             <?php endif; ?>
             <li><a href="chgpwd.php">Changer de mot de passe</a></li>
             <li><a href="addnews.php">Ajouter un article</a></li>
