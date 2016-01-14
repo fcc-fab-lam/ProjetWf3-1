@@ -13,16 +13,17 @@
 		</div>
 
 		<div id="art">
-		<p>Ecrivez votre article</p>
+		
 		</div>
 		<div id="date">
-		<p> nous sommes le  et il est </p> 
+		<label for="article">Article</label>
+			<textarea name="article" placeholder="votre recherche"></textarea>
 		</div>
 
 
 <form method="get">
   		<label for="search">Votre recherche</label>
-  		<input type="text" name="search" id="search">
+  		<input type="text" name="search" id="search" placeholder="votre recherche">
   		<br><input type="submit" value="Envoyer"> 
 </form>
 
