@@ -20,12 +20,4 @@ include_once 'inc/header.php';
 	
 	<?php } ?>
 
-
-
-<form method="get">
-  		<label for="search">Votre recherche</label>
-  		<input type="text" name="search" id="search">
-  		<br><input type="submit" value="Envoyer"> 
-</form>
-
 <?php include_once 'inc/footer.php'; ?>
