@@ -33,12 +33,12 @@ if (!empty($_POST)) {
 						}
 					}
 					else {
-						// MDP KO
+						$err[]='le mot de passe est incorrect';
 					}
 
 			} 
 			else{
-				// Requete SQL KO
+				header('Location: tokenpwd')
 			}
 		}
 }
