@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.4.1.1
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Jeu 14 Janvier 2016 à 16:08
--- Version du serveur :  10.1.9-MariaDB
--- Version de PHP :  5.6.15
+-- Client :  localhost:8889
+-- Généré le :  Ven 15 Janvier 2016 à 00:11
+-- Version du serveur :  5.5.42
+-- Version de PHP :  5.6.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données :  `projetwf3-1`
@@ -49,7 +49,7 @@ CREATE TABLE `news` (
   `img` varchar(255) NOT NULL,
   `publication_date` datetime NOT NULL,
   `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `news`
@@ -74,7 +74,7 @@ CREATE TABLE `options` (
   `id` int(11) NOT NULL,
   `data` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table options des utilisateurs';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Table options des utilisateurs';
 
 --
 -- Contenu de la table `options`
@@ -91,19 +91,19 @@ INSERT INTO `options` (`id`, `data`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `role`
+-- Structure de la table `roles`
 --
 
-CREATE TABLE `role` (
+CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
-  `type` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table des rôles des utilisateurs';
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Table des rôles des utilisateurs';
 
 --
--- Contenu de la table `role`
+-- Contenu de la table `roles`
 --
 
-INSERT INTO `role` (`id`, `type`) VALUES
+INSERT INTO `roles` (`id`, `name`) VALUES
 (1, 'admin'),
 (2, 'user');
 
@@ -129,17 +129,18 @@ CREATE TABLE `tokens` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `nickname` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `id_role` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table utilisateurs';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Table utilisateurs';
 
 --
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `id_role`) VALUES
-(1, 'admin@test.fr', '$2y$10$FGmEj9DT8a9TMKGEBZ9ciOzmUeSdoWF1g/hg0ajOanFfImKzGZUHa', 1),
-(2, 'user@test.fr', '$2y$10$JCMcctNAKDwAByoOzMybPuQKu8ilf7eh7n61zzQjqraMFDsoDxqhC', 0);
+INSERT INTO `users` (`id`, `email`, `nickname`, `password`, `id_role`) VALUES
+(1, 'admin@test.fr', 'PseudoAdmin', '$2y$10$FGmEj9DT8a9TMKGEBZ9ciOzmUeSdoWF1g/hg0ajOanFfImKzGZUHa', 1),
+(2, 'user@test.fr', 'PseudoUser', '$2y$10$JCMcctNAKDwAByoOzMybPuQKu8ilf7eh7n61zzQjqraMFDsoDxqhC', 2);
 
 --
 -- Index pour les tables exportées
@@ -164,9 +165,9 @@ ALTER TABLE `options`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `role`
+-- Index pour la table `roles`
 --
-ALTER TABLE `role`
+ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -195,27 +196,27 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT pour la table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT pour la table `role`
+-- AUTO_INCREMENT pour la table `roles`
 --
-ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
