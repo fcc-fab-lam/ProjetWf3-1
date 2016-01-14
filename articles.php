@@ -1,5 +1,5 @@
 <?php
-    $titrePage = 'Articles';
+    $titrePage = 'Les news';
     require_once 'inc/dbconnect.php';
     include_once 'inc/header.php'; 
 	$rep = $bdd->prepare('SELECT * FROM news');

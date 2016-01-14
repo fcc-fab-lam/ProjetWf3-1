@@ -58,17 +58,12 @@ if(!empty($_POST)){
 	}
 	else {
         // On stocke les données en base de données
-        $req = $bdd->prepare('INSERT INTO users (email, password) VALUES(:email, :password)');
+        $req = $bdd->prepare('INSERT INTO users (email, password, role) VALUES(:email, :password, :role)');
         $req->bindValue(':email', $post['email'], PDO::PARAM_STR);
         $req->bindValue(':password', password_hash($post['password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $req->bindValue(':role', $post['role'], PDO::PARAM_STR);
         if($req->execute()){
-            $lastId = $bdd->lastInsertId();
-            $req2 = $bdd->prepare('INSERT INTO role (type, id_user) VALUES(:type, :userId)');
-            $req2->bindValue(':type', $post['role'], PDO::PARAM_STR);
-            $req2->bindValue(':userId', $lastId, PDO::PARAM_INT);
-            if($req2->execute()){
-                $formValid = true;
-            }
+            $formValid = true;
         }
 	}
 }

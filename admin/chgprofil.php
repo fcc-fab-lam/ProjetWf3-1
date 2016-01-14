@@ -20,18 +20,33 @@ if(!empty($_POST)){
     foreach($_POST as $key => $value){
         $post[$key] = trim(strip_tags($value));
     }
+    
     if(empty($post['nom'])){
         $error[] = 'Le nom ne peut être vide.';
     }
+    
     if(empty($post['prenom'])){
         $error[] = 'Le prénom ne peut être vide.';
     }
+    
     if(!is_numeric($post['telephone'])){
         $error[] = 'Le téléphone doit contenir des chiffres.';
     }
     elseif(strlen($post['telephone']) < 10){
         $error[] = 'Le téléphone doit comporter au moins 10 chiffres.';
     }
+    
+    if(empty($post['email'])){
+        $error[] = 'Le prénom ne peut être vide.';
+    }
+	elseif(!filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
+			$error[] = 'L\'adresse email est incorrecte';	
+	}
+    
+    if(empty($post['titre'])){
+        $error[] = 'Le prénom ne peut être vide.';
+    }
+    
     if(empty($_FILES['avatar']['size'])){
         $err[] = 'L\'image ne peut être vide';        
     }
@@ -53,14 +68,12 @@ if(!empty($_POST)){
         
         $search = array('à','â','ä','é','è','ê','ë','ï','î','ô','ö','ù','ü',' ');
         $replace = array('a','a','a','e','e','e','e','i','i','o','o','u','u','');
-        
-        $imgUploaded = str_replace($search, $replace, $_FILES['avatar']['name']);
-        
-        move_uploaded_file($_FILES['avatar']['tmp_name'], $cheminImages.$imgUploaded);
-        
-        $allowFieldsSQL = ['nom', 'prenom', 'telephone', 'email', 'avatar'];
 
-        $post['avatar'] = $imgUploaded;
+        $post['avatar'] = str_replace($search, $replace, $_FILES['avatar']['name']);
+        
+        move_uploaded_file($_FILES['avatar']['tmp_name'], $cheminImages.$post['avatar']);
+        
+        $allowFieldsSQL = ['nom', 'prenom', 'telephone', 'email', 'titre', 'avatar'];
         foreach($post as $key => $value){
             if(in_array($key, $allowFieldsSQL) && !empty($value)){
                 $req = $bdd->prepare('UPDATE options SET value=:value WHERE data=:data');
@@ -92,6 +105,8 @@ include_once 'inc/header.php';
         <input type="text" name="telephone" id="telephone">
         <label for="email">Email</label>
         <input type="text" name="email" id="email">
+        <label for="titre">Titre du blog</label>
+        <input type="text" name="titre" id="titre">
         <label for="avatar">Avatar</label>
         <input type="file" name="avatar" id="avatar">
         <button type="submit">Envoyer</button>
