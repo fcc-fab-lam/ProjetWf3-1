@@ -7,9 +7,10 @@
 <body>
 <header>
     <h1>BackOffice</h1>
+    <?php if(isset($_SESSION['role'])): ?>
     <nav>
         <ul>
-            <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+            <?php if($_SESSION['role'] == 'admin'): ?>
             <li><a href="adduser.php">Ajouter un utilisateur</a></li>
             <li><a href="chgcover.php">Changer la couverture</a></li>
             <li><a href="chgprofil.php">Modifier le profil</a></li>
@@ -19,4 +20,5 @@
             <li><a href="addnews.php">Ajouter un article</a></li>
         </ul>
     </nav>
+    <?php endif; ?>
 </header>
