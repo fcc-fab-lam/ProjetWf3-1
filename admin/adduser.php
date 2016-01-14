@@ -1,11 +1,10 @@
 <?php
 session_start();
+
 if(!isset($_SESSION['role'])){
-    header('location: index.php');
+    header('Location: index.php');
 }
 require_once 'inc/dbconnect.php';
-
-include_once 'inc/header.php';
 
 $formValid = false;
 $errorsForm = false;
@@ -41,6 +40,13 @@ if(!empty($_POST)){
 			$error[] = 'Le mot de passe doit contenir au moins 8 caractères';
 		}
 	}
+    if(empty($post['role'])){
+        $error[] = 'Choisissez un rôle pour cet utilisateur.';
+    }
+    elseif($post['role'] != 'user' && $post['role'] != 'admin'){
+        $error[] = 'Merci de ne pas jouer au petit malin !';
+    }
+    
 
 	if(count($error) > 0){
 		$errorsForm = true;
@@ -51,10 +57,19 @@ if(!empty($_POST)){
         $req->bindValue(':email', $post['email'], PDO::PARAM_STR);
         $req->bindValue(':password', password_hash($post['password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
         if($req->execute()){
-            $formValid = true;
+            $lastId = $bdd->lastInsertId();
+            $req2 = $bdd->prepare('INSERT INTO role (type, id_user) VALUES(:type, :userId)');
+            $req2->bindValue(':type', $post['role'], PDO::PARAM_STR);
+            $req2->bindValue(':userId', $lastId, PDO::PARAM_INT);
+            if($req2->execute()){
+                $formValid = true;
+            }
         }
 	}
 }
+
+include_once 'inc/header.php';
+
 ?>
     <h3>Ajout d'un nouvel utilisateur</h3>
     <form method="post">
@@ -62,6 +77,11 @@ if(!empty($_POST)){
         <input type="text" name="email" id="email">
         <label for="password">Mot de passe</label>
         <input type="password" name="password" id="password">
+        <select name="role">
+            <option value="">Choisir un rôle</option>
+            <option value="user">Utilisateur</option>
+            <option value="admin">Administrateur</option>
+        </select>
         <button type="submit">Envoyer</button>
     </form>
     <?php 
