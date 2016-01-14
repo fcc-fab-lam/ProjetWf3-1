@@ -3,6 +3,11 @@ session_start();
 
 require_once 'inc/dbconnect.php';
 
+if(isset($_SESSION['email'])){
+    header('Location: accueil.php');
+    die;
+}
+
 $post =array();
 $errorsForm = false;
 $error = array();
@@ -48,8 +53,8 @@ if(!empty($_POST)){
                 'email'  => $user['email'],
             );
         
-            $checkRole = $bdd->prepare('SELECT * FROM role WHERE id_user = :userId');
-            $checkRole->bindValue(':userId', $user['id']);
+            $checkRole = $bdd->prepare('SELECT * FROM role WHERE id = :roleId');
+            $checkRole->bindValue(':roleId', $user['id_role']);
             $checkRole->execute();
 
             $role = $checkRole->fetch(PDO::FETCH_ASSOC);
