@@ -14,19 +14,13 @@ $error = array();
 $emailExiste = false;
 if(!empty($_POST)){
 	foreach ($_POST as $key => $value) {
-        
-        // On devrait plutôt faire l'inverse, c'est à dire : trim(strip_tags());
-        
-        // trim retire les espaces en début et fin de chaine, strip_tags le HTML / PHP
-        // dans ton cas, une chaine type "<p> Hello </p>" sortira de cette manière : " Hello "
-        
-		$post[$key] = strip_tags(trim($value)); 
+		$post[$key] = trim(strip_tags($value)); 
 	}
 	if(empty($post['email'])){
-		$error[] = 'L\'adresse email est vide'.PHP_EOL;
+		$error[] = 'L\'email ne peut être vide.';
 	}
 	elseif(!filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
-        $error[] = 'L\'adresse email est incorrecte'.PHP_EOL;	
+        $error[] = 'L\'email est incorrect.';	
 	}
     else{
         $checkEmail = $bdd->prepare('SELECT * FROM users WHERE email = :email');
@@ -39,11 +33,11 @@ if(!empty($_POST)){
             $emailExiste = true;
         }
         else{
-            $error[] = 'L\'email n\'exite pas.'.PHP_EOL;
+            $error[] = 'L\'email n\'exite pas.';
         }
     }
 	if(empty($post['password'])){
-		$error[] = 'Le mot de passe est vide.'.PHP_EOL;
+		$error[] = 'Le mot de passe ne peut être vide.';
 	}
 	elseif($emailExiste) {
         
@@ -51,18 +45,19 @@ if(!empty($_POST)){
             $_SESSION = array(
                 'userId'  => $user['id'],
                 'email'  => $user['email'],
+                'pseudo'  => $user['nickname'],
             );
         
-            $checkRole = $bdd->prepare('SELECT * FROM role WHERE id = :roleId');
+            $checkRole = $bdd->prepare('SELECT * FROM roles WHERE id = :roleId');
             $checkRole->bindValue(':roleId', $user['id_role']);
             $checkRole->execute();
 
             $role = $checkRole->fetch(PDO::FETCH_ASSOC);
 
-            $_SESSION['role']  = $role['type'];
+            $_SESSION['role']  = $role['name'];
             
         } else {
-            $error[] = 'Le mot de passe est incorrect.'.PHP_EOL;
+            $error[] = 'Le mot de passe est incorrect.';
         }
 	}
 

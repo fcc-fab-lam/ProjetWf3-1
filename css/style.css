@@ -134,7 +134,7 @@ body {
 	width: 75%;
 }
 
-a{
+#sommaire a{
 	text-decoration: none;
 	color: #FFFFFF;
 	text-transform: uppercase;
@@ -157,15 +157,34 @@ main{
 	margin: 0 auto;
 }
 
-article{
+#news::after{
+	display: block;
+	content: '';
+	clear: both;
+}
+
+#news article{
 	width: 50%;
 	float: left;
 	padding: 40px;
 	text-align: justify;
 }
 
-article a{
+#news article a{
 	color : #FF931C;
+}
+
+#pagination{
+	padding: 10px;
+}
+
+#pagination ul li{
+	display:inline-block;
+	margin-right: 10px;
+}
+#pagination ul li a{
+	color: #FF931C;
+	text-decoration: none;
 }
 
 form{
@@ -174,4 +193,8 @@ form{
 
 input{
 	margin-bottom: 20px;
+}
+
+u{
+	background-color: yellow;
 }

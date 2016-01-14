@@ -1,7 +1,7 @@
 <?php
-$email = '';
-if(isset($_SESSION['email'])){
-    $email = '('.$_SESSION['email'].')';
+$pseudo = '';
+if(isset($_SESSION['pseudo'])){
+    $pseudo = '('.$_SESSION['pseudo'].')';
 }
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ if(isset($_SESSION['email'])){
 </head>
 <body>
 <header>
-    <h1>BackOffice<?php echo $email; ?></h1>
+    <h1>Bienvenue <?php echo $pseudo; ?></h1>
     <?php if(isset($_SESSION['role'])): ?>
     <nav>
         <ul>
@@ -20,7 +20,7 @@ if(isset($_SESSION['email'])){
             <li><a href="adduser.php">Ajouter un utilisateur</a></li>
             <li><a href="chgcover.php">Changer la couverture</a></li>
             <li><a href="chgprofil.php">Modifier le profil</a></li>
-            <li><a href="readcontact.php">Voir les contacts</a></li>
+            <li><a href="contactlist.php">Voir les contacts</a></li>
             <li><a href="userslist.php">Voir les utilisateurs</a></li>
             <?php endif; ?>
             <li><a href="chgpwd.php">Changer de mot de passe</a></li>

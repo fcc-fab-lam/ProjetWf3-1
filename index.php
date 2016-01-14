@@ -2,10 +2,38 @@
     $titrePage = 'Accueil';
     require_once 'inc/dbconnect.php';
     include_once 'inc/header.php'; 
+	
+	// Pagination
+	$artParPage = 4;
 
-	$rep = $bdd->prepare('SELECT * FROM news ORDER BY publication_date DESC LIMIT 6');
-	$rep->execute();
-	$art = $rep->fetchAll(PDO::FETCH_ASSOC);
+	$reqPage = $bdd->prepare('SELECT COUNT(*) FROM news');
+	if($reqPage->execute()){
+		$nbArticles = $reqPage->fetchColumn();
+	}
+
+	$nbTotalPages = ceil($nbArticles / $artParPage);
+	
+	if(isset($_GET['page']) && is_numeric($_GET['page'])){
+		$pageCourante = (int) $_GET['page'];
+
+		if($pageCourante > $nbTotalPages){
+			$pageCourante = $nbTotalPages;
+		}
+	}
+	else {
+		$pageCourante = 1;
+	}
+	$start = ($pageCourante - 1) * $artParPage;
+
+	$rep = $bdd->prepare('SELECT * FROM news ORDER BY publication_date DESC LIMIT :start, :maxi');
+	$rep->bindParam(':start', $start, PDO::PARAM_INT);
+	$rep->bindParam(':maxi', $artParPage, PDO::PARAM_INT);
+	if($rep->execute()){
+		$art = $rep->fetchAll(PDO::FETCH_ASSOC);
+	}
+	else {
+		echo '<p class="error">Une erreur est survenue. Veuillez réessayer plus tard.</p>';
+	}
 
 ?>
 
@@ -25,5 +53,22 @@
 
 
 	</section>
+	
+	<?php //if($nbTotalPages > 1): ?>
+	<nav id="pagination">
+		<ul>
+		<?php 
+			for($i=1; $i<=$nbTotalPages; $i++){
+				if($i == $pageCourante){
+					echo '<li class="active">'.$i.'</li>'; 
+				}
+				else {
+					echo '<li><a href="index.php?page='.$i.'">'.$i.'</a></li>';
+				}
+			}
+		?>
+		</ul>
+	</nav>
+	<?php //endif; ?>
 
 <?php include_once 'inc/footer.php'; ?>

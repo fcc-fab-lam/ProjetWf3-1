@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div id="search">
-		<form method="get">
+		<form method="get" action="searchresults.php">
 	  		<input type="text" name="search" id="search" placeholder="votre recherche">
 	  		<button type="submit"><i class="fa fa-search"></i></button>
 		</form>
