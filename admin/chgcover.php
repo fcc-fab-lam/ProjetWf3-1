@@ -3,6 +3,8 @@ session_start();
 
 require_once 'inc/secure.php';
 
+require_once 'inc/secure-admin.php';
+
 require_once 'inc/dbconnect.php';
 
 include_once 'inc/header.php';

@@ -3,6 +3,8 @@ session_start();
 
 require_once 'inc/secure.php';
 
+require_once 'inc/secure-admin.php';
+
 if(!isset($_SESSION['role'])){
     header('Location: index.php');
 }
