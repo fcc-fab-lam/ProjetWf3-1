@@ -1,4 +1,12 @@
-<?php include_once 'inc/header.php'; ?>
+<?php 
+require_once 'inc/dbconnect.php';
+include_once 'inc/header.php'; 
+
+	$rep = $bdd->prepare('SELECT * FROM news ORDER BY publication_date DESC LIMIT 5');
+	$rep->execute();
+	$art = $rep->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 
 
 	<div id="slider">
@@ -7,36 +15,14 @@
 
 	<section id="news">
 		<h2>Les News</h2>
-		<div class="article">
-			<h3>Blackhat, film majeur</h3>
-			<p>comme en 2013, David Bowie n’a laissé à personne d’autre le soin de lancer la rentrée musicale pop rock.
-			Mais si Blackstar fait plus que jamais événement à l'aune de la disparisiton du chanteur, 
-			il n’éclipse pas pour autant la conséquente vague de sorties d’albums majeurs ou attendus
-			d’ici le printemps, passée une première fournée importante le 22 janvier (Fat White Family, Tortoise, Ty Segall, Tindersticks,
-			Dionysos, Savages, Tricky, Suede...). Tour d’horizon non exhaustif des productions marquantes à surveiller…</p>
-			</p>  
-		</div>
-
-		<div class="article">
-			<h3>Collateral, mon erreur</h3>
-			<p>comme en 2013, David Bowie n’a laissé à personne d’autre le soin de lancer la rentrée musicale pop rock.
-			Mais si Blackstar fait plus que jamais événement à l'aune de la disparisiton du chanteur, 
-			il n’éclipse pas pour autant la conséquente vague de sorties d’albums majeurs ou attendus
-			d’ici le printemps, passée une première fournée importante le 22 janvier (Fat White Family, Tortoise, Ty Segall, Tindersticks,
-			Dionysos, Savages, Tricky, Suede...). Tour d’horizon non exhaustif des productions marquantes à surveiller…</p>
-			</p>  
-		</div>
+		<?php foreach ($art as $key => $value) { ?>
+			<article>
+				<a href="article.php?id=<?php echo $value['id']?>"><h3><?php echo $value['title'];?></h3></a>
+				<p><?php echo mb_substr($value['content'], 0, 500); ?><a href="article.php?id=<?php echo $value['id']?>"> Lire la suite...</a></p>
+			</article>
+		<?php } ?>
 
 
-		<div class="article">
-			<h3>Miami Vice, mon chef d'oeuvre</h3>
-			<p>comme en 2013, David Bowie n’a laissé à personne d’autre le soin de lancer la rentrée musicale pop rock.
-			Mais si Blackstar fait plus que jamais événement à l'aune de la disparisiton du chanteur, 
-			il n’éclipse pas pour autant la conséquente vague de sorties d’albums majeurs ou attendus
-			d’ici le printemps, passée une première fournée importante le 22 janvier (Fat White Family, Tortoise, Ty Segall, Tindersticks,
-			Dionysos, Savages, Tricky, Suede...). Tour d’horizon non exhaustif des productions marquantes à surveiller…</p>
-			</p>  
-		</div>	
 	</section>
 
 <?php include_once 'inc/footer.php'; ?>
