@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 14 Janvier 2016 à 11:28
+-- Généré le :  Jeu 14 Janvier 2016 à 16:08
 -- Version du serveur :  10.1.9-MariaDB
 -- Version de PHP :  5.6.15
 
@@ -32,7 +32,8 @@ CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `message` text NOT NULL,
-  `new` enum('no','yes') NOT NULL
+  `new` enum('no','yes') NOT NULL,
+  `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table des contacts';
 
 -- --------------------------------------------------------
@@ -82,9 +83,10 @@ CREATE TABLE `options` (
 INSERT INTO `options` (`id`, `data`, `value`) VALUES
 (1, 'nom', 'Mann'),
 (2, 'prenom', 'Michael'),
-(3, 'telephone', '0600000000'),
+(3, 'telephone', '0123456789'),
 (4, 'email', 'michael@mann.com'),
-(5, 'avatar', 'mm.jpg');
+(5, 'avatar', 'mm.jpg'),
+(6, 'titre', 'Moi, Michael Mann, Dieu du cinéma');
 
 -- --------------------------------------------------------
 
@@ -94,16 +96,16 @@ INSERT INTO `options` (`id`, `data`, `value`) VALUES
 
 CREATE TABLE `role` (
   `id` int(11) NOT NULL,
-  `type` enum('admin','user') NOT NULL,
-  `id_user` int(11) NOT NULL
+  `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table des rôles des utilisateurs';
 
 --
 -- Contenu de la table `role`
 --
 
-INSERT INTO `role` (`id`, `type`, `id_user`) VALUES
-(1, 'admin', 1);
+INSERT INTO `role` (`id`, `type`) VALUES
+(1, 'admin'),
+(2, 'user');
 
 -- --------------------------------------------------------
 
@@ -127,15 +129,17 @@ CREATE TABLE `tokens` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `id_role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table utilisateurs';
 
 --
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`) VALUES
-(1, 'admin@test.fr', '$2y$10$FGmEj9DT8a9TMKGEBZ9ciOzmUeSdoWF1g/hg0ajOanFfImKzGZUHa');
+INSERT INTO `users` (`id`, `email`, `password`, `id_role`) VALUES
+(1, 'admin@test.fr', '$2y$10$FGmEj9DT8a9TMKGEBZ9ciOzmUeSdoWF1g/hg0ajOanFfImKzGZUHa', 1),
+(2, 'user@test.fr', '$2y$10$JCMcctNAKDwAByoOzMybPuQKu8ilf7eh7n61zzQjqraMFDsoDxqhC', 0);
 
 --
 -- Index pour les tables exportées
@@ -196,12 +200,12 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT pour la table `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `tokens`
 --
@@ -211,7 +215,7 @@ ALTER TABLE `tokens`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

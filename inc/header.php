@@ -44,4 +44,4 @@
 	</div>
 
 <main>
-	<h1>Moi, Michael Mann, Dieu du cinéma</h1>
+	<h1><?php echo $options['titre']; ?></h1>
