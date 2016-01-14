@@ -1,3 +1,15 @@
+<?php
+	$rep = $bdd->prepare('SELECT * FROM options');
+	$rep->execute();
+	$option = $rep->fetchAll(PDO::FETCH_ASSOC);
+	$options = array();
+	foreach ($option as $value) {
+		$options[$value['data']] = $value['value'];
+	}
+
+?>
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,20 +24,21 @@
 	  		<input type="text" name="search" id="search" placeholder="votre recherche">
 	  		<button type="submit"><i class="fa fa-search"></i></button>
 		</form>
+		<a href="admin"><i class="fa fa-user"></i></a>
+
 	</div>
 	<div id="sommaire">
 		<div id= "avatar">
-			<img src="img/mm.jpg">
-			<p>Prénom NOM</p>
-			<p>Tél :</p>
-			<p>Email:</p> 
+			<img src="img/<?php echo $options['avatar']; ?>">
+			<p><?php echo $options['prenom'].' '.$options['nom']; ?></p>
+			<p><?php echo $options['telephone']; ?></p>
+			<p><?php echo $options['email']; ?></p> 
 		</div>
 			<nav>
 				<ul> 
 					<li><a href="index.php">accueil</a></li>
 					<li><a href="articles.php">les news</a></li>
 					<li><a href="contact.php">contact</a></li>
-					<li><a href="admin/index.php">Connexion</a></li>
 				</ul>
 			</nav>	
 	</div>
