@@ -81,19 +81,41 @@ body {
 
 
 #search input{
-	margin: 10px;
+	margin: 10px 0 10px 10px;
 	width: 150px;
 	height: 20px;
 	border: none;
 	background-color: #046380;
 	padding: 5px;
-	display: inline-block;
+	float: left;
 	position: relative;
 }
 
 #search button{
-	display: inline-block;
+	float: left;
 	position: relative;
+	background-color: #046380;
+	color: darkgrey;
+	border : none;
+	height: 20px;
+	margin-top: 10px;
+}
+
+#search a{
+	background-color: #046380;
+	color: darkgrey;
+	border-radius: 50%;
+	display: block;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	float: right;
+	text-align: center;
+	margin: 5px 10px;
+}
+
+#search a i{
+	line-height: 30px;
 }
 
 #avatar{
