@@ -1,6 +1,8 @@
 <?php 
 session_start();
 
+require_once 'inc/secure.php';
+
 if(isset($_GET['logout'])){
 	if($_GET['logout'] == 'yes'){
 		session_destroy();		

@@ -1,3 +1,9 @@
+<?php
+$email = '';
+if(isset($_SESSION['email'])){
+    $email = '('.$_SESSION['email'].')';
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,7 +12,7 @@
 </head>
 <body>
 <header>
-    <h1>BackOffice</h1>
+    <h1>BackOffice<?php echo $email; ?></h1>
     <?php if(isset($_SESSION['role'])): ?>
     <nav>
         <ul>

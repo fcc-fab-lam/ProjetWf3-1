@@ -1,9 +1,12 @@
 <?php
 session_start();
 
+require_once 'inc/secure.php';
+
 if(!isset($_SESSION['role'])){
     header('Location: index.php');
 }
+
 require_once 'inc/dbconnect.php';
 
 $formValid = false;
