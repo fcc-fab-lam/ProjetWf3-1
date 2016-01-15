@@ -24,14 +24,14 @@ if(!empty($_POST)){
 		$post[$key] = trim(strip_tags($value));
 	}
 
-	foreach($i=1;$i<$maxImages;$i++){
-		if(empty($_FILES['image_<?php echo $i; ?>']['size'])){ 
+	for($i=1;$i<=$maxImages;$i++){
+		if(empty($_FILES['image_'.$i]['size'])){ 
 			$error[] = 'L\'image ne peut être vide';
 		}
-		elseif($_FILES['image_<?php echo $i; ?>']['size'] > $maxSize) { 
+		elseif($_FILES['image_'.$i]['size'] > $maxSize) { 
 			$error[] = 'L\'image excède le poids autorisé';
 		}
-		$fileMimeType = $finfo->file($_FILES['image_<?php echo $i; ?>']['tmp_name'], FILEINFO_MIME_TYPE);
+		$fileMimeType = $finfo->file($_FILES['image_'.$i]['tmp_name'], FILEINFO_MIME_TYPE);
 		if(!in_array($fileMimeType, $mimeTypeAllowed)){ // 
 			$error[] = 'Le fichier n\'est pas une image';
 		}
@@ -43,10 +43,10 @@ if(!empty($_POST)){
 	else {
 		$search = array(' ', 'é', 'è', 'à');
 		$replace = array('-', 'e', 'e', 'a', 'u');
-		foreach($i=1;$i<$maxImages;$i++){
-			$newFileName = str_replace($search, $replace, time().'-'.$_FILES['image_<?php echo $i; ?>']['name']);
+		for($i=1;$i<=$maxImages;$i++){
+			$newFileName = str_replace($search, $replace, time().'-'.$_FILES['image_'.$i]['name']);
 			$monImgUpload = $dirUpload.$newFileName;
-			if(move_uploaded_file($_FILES['image_<?php echo $i; ?>']['tmp_name'], $monImgUpload)){
+			if(move_uploaded_file($_FILES['image_'.$i]['tmp_name'], $monImgUpload)){
 
 				$insertImage = $bdd->prepare('UPDATE options SET value=:value WHERE data=:data');
 				$insertImage->bindValue(':value', $newFileName, PDO::PARAM_STR);
@@ -76,11 +76,11 @@ if(!empty($_POST)){
 
 	<form method="POST" enctype="multipart/form-data">
 
-	<?php for($i=1;$i<$maxImages;$i):?>
+	<?php for($i=1;$i<=$maxImages;$i++):?>
 		<label>Nouvelle image <?php echo $i; ?></label>
 		<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $maxSize; ?>">
 		<input type="file" id="image" name="image_<?php echo $i; ?>">
-	<?php endif; ?>
+	<?php endfor; ?>
 		<br>
 		<button type="submit">Envoyer</button>
 

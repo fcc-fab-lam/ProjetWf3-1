@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 15 Janvier 2016 à 12:20
+-- Généré le :  Ven 15 Janvier 2016 à 15:51
 -- Version du serveur :  10.1.9-MariaDB
 -- Version de PHP :  5.6.15
 
@@ -42,9 +42,15 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `email`, `subject`, `message`, `new`, `date`) VALUES
-(1, 'michael@mann.com', '', 'C''est un scandale ce site de merde !!!', 'yes', '0000-00-00 00:00:00'),
-(2, 'steeven@seagal.com', '', 'Il manque un slide sur ce putain de site !!!', 'yes', '0000-00-00 00:00:00'),
-(3, 'alfred@hitchcock.com', '', 'Shame on you !!!', 'yes', '0000-00-00 00:00:00');
+(1, 'michael@mann.com', '', 'C''est un scandale ce site de merde !!!', 'no', '0000-00-00 00:00:00'),
+(2, 'steeven@seagal.com', '', 'Il manque un slide sur ce putain de site !!!', 'no', '0000-00-00 00:00:00'),
+(3, 'alfred@hitchcock.com', '', 'Shame on you !!!', 'no', '0000-00-00 00:00:00'),
+(4, 'miaou@miaou.fr', 'mi', 'aou', 'no', '2016-01-15 12:26:47'),
+(5, 'miaou@miaou.fr', 'mi', 'aou', 'yes', '2016-01-15 12:27:49'),
+(6, 'miaou@miaou.fr', 'mi', 'aou', 'yes', '2016-01-15 12:29:21'),
+(7, 'miaou@miaou.fr', 'mi', 'aou', 'yes', '2016-01-15 12:30:09'),
+(8, 'miaou@miaou.fr', 'mi', 'aou', 'no', '2016-01-15 12:37:13'),
+(9, 'cat@cat.fr', 'et bé !', 'miaou à bé', 'yes', '2016-01-15 12:40:58');
 
 -- --------------------------------------------------------
 
@@ -94,10 +100,13 @@ INSERT INTO `options` (`id`, `data`, `value`) VALUES
 (1, 'nom', 'Mann'),
 (2, 'prenom', 'Michael'),
 (3, 'telephone', '0123456789'),
-(4, 'email', 'michael@mann.com'),
+(4, 'email', 'michael.mann.the.god.of.cinema@gmail.com'),
 (5, 'avatar', 'mm.jpg'),
 (6, 'titre', 'Moi, Michael Mann, Dieu du cinéma'),
-(7, 'slider_1', 'miamivice.jpg');
+(7, 'slider_1', '1452869382-miamivice.jpg'),
+(8, 'slider_2', '1452869382-miamivice.jpg'),
+(9, 'slider_3', '1452869382-miamivice.jpg'),
+(10, 'slider_4', '1452869382-miamivice.jpg');
 
 -- --------------------------------------------------------
 
@@ -202,7 +211,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `news`
 --
@@ -212,7 +221,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT pour la table `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `roles`
 --
