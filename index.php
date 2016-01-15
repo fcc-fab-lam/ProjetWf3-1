@@ -39,7 +39,8 @@
 
 
 	<div id="slider">
-		<img src="img/miamivice.jpg" alt="">
+		<img src="img/<?php echo $options['slider_1']; ?>">
+
 	</div>
 
 	<section id="news">

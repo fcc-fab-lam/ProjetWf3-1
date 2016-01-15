@@ -34,7 +34,7 @@ if(!empty($_POST)){
 		$error[] = 'Le fichier n\'est pas une image';
 	}
 	
-	if (count($err) > 0) {
+	if (count($error) > 0) {
 		$erreursForm = true;
 	}
 	else {

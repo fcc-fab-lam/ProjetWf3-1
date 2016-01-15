@@ -29,7 +29,7 @@
 	</div>
 	<div id="sommaire">
 		<div id= "avatar">
-			<img src="img/<?php echo $options['avatar']; ?>">
+			<a href="index.php"><img src="img/<?php echo $options['avatar']; ?>"></a>
 			<p><?php echo $options['prenom'].' '.$options['nom']; ?></p>
 			<p><?php echo $options['telephone']; ?></p>
 			<p><?php echo $options['email']; ?></p> 
