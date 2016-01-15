@@ -20,7 +20,7 @@ if(isset($_SESSION['pseudo'])){
             <li><a href="adduser.php">Ajouter un utilisateur</a></li>
             <li><a href="chgcover.php">Changer la couverture</a></li>
             <li><a href="chgprofil.php">Modifier le profil</a></li>
-            <li><a href="contactlist.php">Voir les contacts</a></li>
+            <li><a href="contactslist.php">Voir les contacts</a></li>
             <li><a href="userslist.php">Voir les utilisateurs</a></li>
             <?php endif; ?>
             <li><a href="chgpwd.php">Changer de mot de passe</a></li>
