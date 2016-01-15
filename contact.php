@@ -6,12 +6,9 @@
 
 	require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
-	$mail = new PHPMailer;
-
-
 ?>
 
-<h1> Contactez-nous!</h1>
+<h1> Contactez-moi!</h1>
 
 <?php
 
@@ -46,7 +43,8 @@ if(!empty($_POST)){
 		$req->bindValue(':subject', $post['subject'], PDO::PARAM_STR);
 		$req->bindValue(':message', $post['message'], PDO::PARAM_STR);
 		if($req->execute()){
-				//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+	        $mail = new PHPMailer; 
 
 			$mail->isSMTP();                                      // Set mailer to use SMTP
 			$mail->Host = 'smtp.mailgun.org';  // Specify main and backup SMTP servers
