@@ -1,5 +1,21 @@
 {
+    "name": "webforce3/projet_equipe",
     "require": {
-        "phpmailer/phpmailer": "~5.2"
-    }
+        "phpmailer/phpmailer": "^5.2"
+    },
+    "authors": [
+        {
+            "name": "Fabien Lamon",
+            "email": "fabien.lamon@gmail.com"
+        },
+        {
+            "name": "Emilie",
+            "email": ""
+        },
+        {
+            "name": "Bertrand",
+            "email": ""
+        }
+    ],
+    "minimum-stability": "stable"
 }
