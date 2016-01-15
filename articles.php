@@ -7,7 +7,7 @@
 	$art2 = $rep->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
+    <section id="news">
 	<?php foreach ($art2 as $key => $value) { ?>
 		<article>
 			<h3><?php echo $value['title'];?></h3>
@@ -17,8 +17,7 @@
 			</div>
 			<p><?php echo $value['content'];?></p>
 		</article>
-
-	
 	<?php } ?>
+    </section>
 
 <?php include_once 'inc/footer.php'; ?>
