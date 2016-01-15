@@ -32,7 +32,7 @@ if(!empty($_POST)){
 		$formError = true;
 	}
 	else {
-		$req = $bdd->prepare('INSERT INTO contact (email, message, new) VALUES(:email, :message, "yes")');
+		$req = $bdd->prepare('INSERT INTO contact (email, message, new, date) VALUES(:email, :message, "yes", NOW())');
 		$req->bindValue(':email', $post['email'], PDO::PARAM_STR);
 		$req->bindValue(':message', $post['message'], PDO::PARAM_STR);
 		if($req->execute()){
