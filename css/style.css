@@ -50,11 +50,12 @@ p{
 /* LAYOUT */
 body {
     height: 100vh;
+    width: 100%;
 }
 
 #sommaire{
 	width: 15%;
-	min-width: 250px;
+	min-width: 200px;
 	height: 100%;
 	background-color: #046380;
 	padding: 20px;
@@ -81,12 +82,13 @@ body {
 
 
 #search input{
-	margin: 10px 0 10px 10px;
+	margin: 8px 10px;
 	width: 150px;
-	height: 20px;
+	height: 24px;
 	border: none;
+    padding: 5px;
+    line-height: 20px;
 	background-color: #046380;
-	padding: 5px;
 	float: left;
 	position: relative;
 }
@@ -134,7 +136,7 @@ body {
 	width: 75%;
 }
 
-#sommaire a{
+a{
 	text-decoration: none;
 	color: #FFFFFF;
 	text-transform: uppercase;
@@ -143,8 +145,7 @@ body {
 
 main{
 	float: right;
-	width: 100%;
-	padding-left: 250px;
+	width: 85%;
 
 }
 
@@ -197,4 +198,10 @@ input{
 
 u{
 	background-color: yellow;
+}
+@media(max-width: 1666px){
+    main{
+        width: calc(100% - 200px);
+    }
+    
 }
