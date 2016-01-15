@@ -164,9 +164,15 @@ main form{
     font-size: 9px;
 }
 
-#slider{
+/* SLIDESHOW */
+#slideshow{
 	margin-bottom: 30px;
 }
+
+.flexslider{
+	border: none;
+}
+
 
 #news{
 	width: 90%;
