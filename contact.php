@@ -57,7 +57,7 @@ if(!empty($_POST)){
 			$mail->Port = 587;                                    // TCP port to connect to
 
 			$mail->setFrom($post['email'], 'Mailer' );
-			$mail->addAddress('lilith.emy@gmail.com');               // Name is optional
+			$mail->addAddress('michael.mann.the.god.of.cinema@gmail.com');               // Name is optional
 			$mail->addReplyTo('lilith.emy@gmail.com', 'Information');
 
 			$mail->isHTML(true);                                  // Set email format to HTML
