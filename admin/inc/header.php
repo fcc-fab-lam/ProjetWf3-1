@@ -20,7 +20,7 @@ if(isset($_SESSION['pseudo'])){
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         <p>Bienvenue <?php echo $pseudo; ?></p>
-        <a href="admin"><i class="fa fa-user"></i></a>
+        <a href="logout.php"><i class="fa fa-user-times"></i></a>
     </div>
 
     <div id="sommaire">
@@ -42,7 +42,6 @@ if(isset($_SESSION['pseudo'])){
                     <?php endif; ?>
                     <li><a href="chgpwd.php">Changer de mot de passe</a></li>
                     <li><a href="addnews.php">Ajouter un article</a></li>
-                    <li><a href="logout.php">Déconnexion</a></li>
                 </ul>
             </nav>
         <?php endif; ?>

@@ -82,11 +82,12 @@ body {
 
 
 #search input{
-	margin: 8px 10px;
-	width: 150px;
+	margin: 8px 0 8px 10px;
+	width: calc(15% - 20px);
+    min-width: 180px;
 	height: 24px;
 	border: none;
-    padding: 5px;
+    padding: 5px 20px 5px 5px;
     line-height: 20px;
 	background-color: #046380;
 	float: left;
@@ -96,7 +97,8 @@ body {
 #search button{
 	float: left;
 	position: relative;
-	background-color: #046380;
+	background-color: transparent;
+    right: 25px;
 	color: darkgrey;
 	border : none;
 	height: 20px;
@@ -146,7 +148,7 @@ a{
 main{
 	float: right;
 	width: 85%;
-
+    padding: 15px;
 }
 
 #slider{
