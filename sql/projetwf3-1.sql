@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 15 Janvier 2016 à 09:39
+-- Généré le :  Ven 15 Janvier 2016 à 10:21
 -- Version du serveur :  10.1.9-MariaDB
 -- Version de PHP :  5.6.15
 
@@ -95,24 +95,25 @@ INSERT INTO `options` (`id`, `data`, `value`) VALUES
 (3, 'telephone', '0123456789'),
 (4, 'email', 'michael@mann.com'),
 (5, 'avatar', 'mm.jpg'),
-(6, 'titre', 'Moi, Michael Mann, Dieu du cinéma');
+(6, 'titre', 'Moi, Michael Mann, Dieu du cinéma'),
+(7, 'slider_1', 'miamivice.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `role`
+-- Structure de la table `roles`
 --
 
-CREATE TABLE `role` (
+CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
-  `type` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table des rôles des utilisateurs';
 
 --
--- Contenu de la table `role`
+-- Contenu de la table `roles`
 --
 
-INSERT INTO `role` (`id`, `type`) VALUES
+INSERT INTO `roles` (`id`, `name`) VALUES
 (1, 'admin'),
 (2, 'user');
 
@@ -138,6 +139,7 @@ CREATE TABLE `tokens` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `nickname` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `id_role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table utilisateurs';
@@ -146,9 +148,9 @@ CREATE TABLE `users` (
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `id_role`) VALUES
-(1, 'admin@test.fr', '$2y$10$FGmEj9DT8a9TMKGEBZ9ciOzmUeSdoWF1g/hg0ajOanFfImKzGZUHa', 1),
-(2, 'user@test.fr', '$2y$10$JCMcctNAKDwAByoOzMybPuQKu8ilf7eh7n61zzQjqraMFDsoDxqhC', 2);
+INSERT INTO `users` (`id`, `email`, `nickname`, `password`, `id_role`) VALUES
+(1, 'admin@test.fr', 'pseudoAdmin', '$2y$10$FGmEj9DT8a9TMKGEBZ9ciOzmUeSdoWF1g/hg0ajOanFfImKzGZUHa', 1),
+(2, 'user@test.fr', 'pseudoUser', '$2y$10$JCMcctNAKDwAByoOzMybPuQKu8ilf7eh7n61zzQjqraMFDsoDxqhC', 2);
 
 --
 -- Index pour les tables exportées
@@ -173,9 +175,9 @@ ALTER TABLE `options`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `role`
+-- Index pour la table `roles`
 --
-ALTER TABLE `role`
+ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -209,11 +211,11 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT pour la table `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT pour la table `role`
+-- AUTO_INCREMENT pour la table `roles`
 --
-ALTER TABLE `role`
+ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `tokens`
