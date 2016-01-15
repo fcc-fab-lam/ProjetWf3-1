@@ -6,7 +6,7 @@ require_once 'inc/secure-admin.php';
 require_once 'inc/dbconnect.php';
 include_once 'inc/header.php';
 
-	$sql = 'SELECT u.email, r.type
+	$sql = 'SELECT u.email, r.name
 			FROM users AS u
 			LEFT JOIN role AS r
 			ON u.id_role=r.id';
@@ -23,7 +23,7 @@ include_once 'inc/header.php';
 <h3>Liste des utilisateurs</h3>
 	<ol>
 	<?php foreach ($utilisateurs as $key => $value) { ?>
-		<li><?php echo $value['email'].' : '.$value['type']; ?></li>
+		<li><?php echo $value['email'].' : '.$value['name']; ?></li>
 	
 	<?php } ?>
 
