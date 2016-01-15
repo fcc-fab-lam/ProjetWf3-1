@@ -8,13 +8,12 @@
 	}
 
 ?>
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title><?php echo $titrePage; ?></title>
 </head>
