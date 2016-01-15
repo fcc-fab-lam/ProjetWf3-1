@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 15 Janvier 2016 à 10:21
+-- Généré le :  Ven 15 Janvier 2016 à 12:20
 -- Version du serveur :  10.1.9-MariaDB
 -- Version de PHP :  5.6.15
 
@@ -31,6 +31,7 @@ USE `projetwf3-1`;
 CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
   `message` text NOT NULL,
   `new` enum('no','yes') NOT NULL,
   `date` datetime NOT NULL
@@ -40,10 +41,10 @@ CREATE TABLE `contact` (
 -- Contenu de la table `contact`
 --
 
-INSERT INTO `contact` (`id`, `email`, `message`, `new`, `date`) VALUES
-(1, 'michael@mann.com', 'C''est un scandale ce site de merde !!!', 'yes', '0000-00-00 00:00:00'),
-(2, 'steeven@seagal.com', 'Il manque un slide sur ce putain de site !!!', 'yes', '0000-00-00 00:00:00'),
-(3, 'alfred@hitchcock.com', 'Shame on you !!!', 'yes', '0000-00-00 00:00:00');
+INSERT INTO `contact` (`id`, `email`, `subject`, `message`, `new`, `date`) VALUES
+(1, 'michael@mann.com', '', 'C''est un scandale ce site de merde !!!', 'yes', '0000-00-00 00:00:00'),
+(2, 'steeven@seagal.com', '', 'Il manque un slide sur ce putain de site !!!', 'yes', '0000-00-00 00:00:00'),
+(3, 'alfred@hitchcock.com', '', 'Shame on you !!!', 'yes', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
