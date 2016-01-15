@@ -6,16 +6,15 @@
 	foreach ($option as $value) {
 		$options[$value['data']] = $value['value'];
 	}
-
-?>
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+
     <title><?php echo $titrePage; ?></title>
 </head>
 <body>
@@ -32,7 +31,7 @@
 			<a href="index.php"><img src="img/<?php echo $options['avatar']; ?>"></a>
 			<p><?php echo $options['prenom'].' '.$options['nom']; ?></p>
 			<p><?php echo $options['telephone']; ?></p>
-			<p><?php echo $options['email']; ?></p> 
+			<p class="smallText"><?php echo $options['email']; ?></p> 
 		</div>
 			<nav>
 				<ul> 

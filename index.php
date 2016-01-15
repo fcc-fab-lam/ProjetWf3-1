@@ -35,13 +35,26 @@
 		echo '<p class="error">Une erreur est survenue. Veuillez réessayer plus tard.</p>';
 	}
 
+
+	$slid = $bdd->prepare('SELECT * FROM options WHERE data LIKE "slider_%"');
+	$slid->execute();
+	$slideshow =  $slid->fetchAll(PDO::FETCH_ASSOC);
 ?>
+	<aside id="slideshow">
+	    <div class="flexslider">
+	      <ul class="slides">
+	      	<?php foreach ($slideshow as $value) { ?>
+	        <li><img src="img/<?php echo $value['value']; ?>" /></li>
+	        <?php } ?>
+	      </ul>
+	    </div>
+    </aside>
 
 
+	<!--
 	<div id="slider">
 		<img src="img/<?php echo $options['slider_1']; ?>">
-
-	</div>
+	</div> -->
 
 	<section id="news">
 		<h2>Les News</h2>
