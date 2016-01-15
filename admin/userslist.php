@@ -8,7 +8,7 @@ include_once 'inc/header.php';
 
 	$sql = 'SELECT u.email, r.name
 			FROM users AS u
-			LEFT JOIN role AS r
+			LEFT JOIN roles AS r
 			ON u.id_role=r.id';
 
 
