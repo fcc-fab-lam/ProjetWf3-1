@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 15 Janvier 2016 à 15:51
+-- Généré le :  Ven 15 Janvier 2016 à 16:13
 -- Version du serveur :  10.1.9-MariaDB
 -- Version de PHP :  5.6.15
 
@@ -103,10 +103,10 @@ INSERT INTO `options` (`id`, `data`, `value`) VALUES
 (4, 'email', 'michael.mann.the.god.of.cinema@gmail.com'),
 (5, 'avatar', 'mm.jpg'),
 (6, 'titre', 'Moi, Michael Mann, Dieu du cinéma'),
-(7, 'slider_1', '1452869382-miamivice.jpg'),
-(8, 'slider_2', '1452869382-miamivice.jpg'),
-(9, 'slider_3', '1452869382-miamivice.jpg'),
-(10, 'slider_4', '1452869382-miamivice.jpg');
+(7, 'slider_1', '1452870587-heatmm.jpg'),
+(8, 'slider_2', '1452870587-thiefmm.jpg'),
+(9, 'slider_3', '1452870587-ennemiesmm.jpg'),
+(10, 'slider_4', '1452870587-miamivice.jpg');
 
 -- --------------------------------------------------------
 
