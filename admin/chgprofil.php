@@ -107,8 +107,8 @@ include_once 'inc/header.php';
         <input type="text" name="email" id="email">
         <label for="titre">Titre du blog</label>
         <input type="text" name="titre" id="titre">
-        <label for="avatar">Avatar</label>
-        <input type="file" name="avatar" id="avatar">
+        <label for="img">Avatar</label>
+        <input type="file" name="avatar" id="img">
         <button type="submit">Envoyer</button>
     </form>
 <?php
