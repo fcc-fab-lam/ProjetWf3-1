@@ -113,7 +113,9 @@ body {
 	width: 30px;
 	height: 30px;
 	line-height: 30px;
-	float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
 	text-align: center;
 	margin: 5px 10px;
 }
@@ -138,17 +140,28 @@ body {
 	width: 75%;
 }
 
+#avatar > p{
+    margin: 5px;
+}
+
+
 a{
 	text-decoration: none;
 	color: #FFFFFF;
 	text-transform: uppercase;
 }
 
-
 main{
 	float: right;
 	width: 85%;
-    padding: 15px;
+}
+
+main form{
+    margin: 40px;
+}
+
+.smallText{
+    font-size: 9px;
 }
 
 #slider{
@@ -188,10 +201,6 @@ main{
 #pagination ul li a{
 	color: #FF931C;
 	text-decoration: none;
-}
-
-form{
-	padding: 40px;
 }
 
 input{

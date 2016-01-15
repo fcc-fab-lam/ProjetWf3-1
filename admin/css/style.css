@@ -97,11 +97,12 @@ body {
 
 
 #search input{
-	margin: 8px 10px;
-	width: 150px;
+	margin: 8px 0 8px 10px;
+	width: calc(15% - 20px);
+    min-width: 180px;
 	height: 24px;
 	border: none;
-    padding: 5px;
+    padding: 5px 20px 5px 5px;
     line-height: 20px;
 	background-color: #122761;
 	float: left;
@@ -111,7 +112,8 @@ body {
 #search button{
 	float: left;
 	position: relative;
-	background-color: #122761;
+	background-color: transparent;
+    right: 25px;
 	color: darkgrey;
 	border : none;
 	height: 20px;
@@ -126,13 +128,23 @@ body {
 	width: 30px;
 	height: 30px;
 	line-height: 30px;
-	float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
 	text-align: center;
 	margin: 5px 10px;
 }
 
 #search a i{
 	line-height: 30px;
+}
+
+#search p{
+    width: auto;
+    text-align: right;
+    padding-right: 50px;
+    height: 40px;
+    line-height: 40px;
 }
 
 #avatar{
@@ -162,6 +174,14 @@ main{
 	width: 85%;
 	padding-top: 70px;
 	padding-left: 30px;
+}
+
+main form{
+    margin: 40px;
+}
+
+label{
+    display: block;
 }
 
 #slider{
@@ -203,16 +223,37 @@ main{
 	text-decoration: none;
 }
 
-form{
-	padding: 40px;
-}
 
 input{
 	margin-bottom: 20px;
 }
+select{
+    display: block;
+}
+
+button{
+    display: block;
+}
 
 u{
 	background-color: yellow;
+}
+.error{
+    color: red;
+}
+
+main ul li{
+    padding: 5px;
+    margin: 5px;
+}
+
+.newContact{
+    background-color: lightgrey;
+    font-weight: 700;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
 @media(max-width: 1666px){
     main{
