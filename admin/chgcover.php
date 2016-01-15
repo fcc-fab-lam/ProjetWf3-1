@@ -66,9 +66,8 @@ if(!empty($_POST)){
 
 
 ?>
-<h3>Bienvenue : <?=$_SESSION['email']; ?></h3>
 
-	<h2>Changer la photo de couverture</h2>
+	<h3>Changer la photo de couverture</h3>
 
 	<form method="POST" enctype="multipart/form-data">
 

@@ -1,0 +1,222 @@
+@import url(reset.css);
+
+@import url(https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,800);
+
+html {box-sizing: border-box}
+*, *::before, *::after {box-sizing: inherit}
+
+img{
+    max-width: 100%;
+}
+
+/*TYPOS */
+
+body {
+    font-family: "Open-Sans", sans-serif;
+}
+
+h1{
+	font-family: "Lora";
+	font-size: 3.000em;
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 30px;
+
+}
+
+h2{
+	font-family: "Lora";
+	font-size: 2em;
+	text-align: center;
+	color : #FF931C;
+	padding-bottom: 30px;
+}
+
+h3{
+	font-family: "Lora";
+	font-size: 1.5em;
+	text-align: left;
+	color : #FF931C;
+	padding-bottom: 15px;
+
+}
+
+p{
+	font-size: 0.9em;
+}
+
+#sommAdmin a{
+	text-transform: capitalize;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: 400;
+	font-family: "Lora";
+	font-size: 0.95em;
+}
+
+#sommAdmin li{
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 5px;
+}
+
+
+
+/* LAYOUT */
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+#sommaire{
+	width: 15%;
+	min-width: 200px;
+	height: 100%;
+	background-color: #122761;
+	padding: 20px;
+	text-align: center;
+	position: fixed;
+	top: 40px;
+	left: 0;
+}
+
+#search{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 40px;
+	background-color: black;
+	color: #FFFFFF;
+}
+
+#search form{
+	padding: 0;
+}
+
+
+#search input{
+	margin: 8px 10px;
+	width: 150px;
+	height: 24px;
+	border: none;
+    padding: 5px;
+    line-height: 20px;
+	background-color: #122761;
+	float: left;
+	position: relative;
+}
+
+#search button{
+	float: left;
+	position: relative;
+	background-color: #122761;
+	color: darkgrey;
+	border : none;
+	height: 20px;
+	margin-top: 10px;
+}
+
+#search a{
+	background-color: #122761;
+	color: darkgrey;
+	border-radius: 50%;
+	display: block;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	float: right;
+	text-align: center;
+	margin: 5px 10px;
+}
+
+#search a i{
+	line-height: 30px;
+}
+
+#avatar{
+	font-family: "Lora";
+	font-weight: 400;
+	color:#FFFFFF;
+	padding-bottom: 90px;
+}
+
+#avatar img{
+	border-radius: 50%;
+	border: solid 3px #FFFFFF;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	width: 75%;
+}
+
+#sommAcc a{
+	text-decoration: none;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+
+
+main{
+	float: right;
+	width: 85%;
+	padding-top: 70px;
+	padding-left: 30px;
+}
+
+#slider{
+	margin-bottom: 30px;
+}
+
+#news{
+	width: 90%;
+	margin: 0 auto;
+}
+
+#news::after{
+	display: block;
+	content: '';
+	clear: both;
+}
+
+#news article{
+	width: 50%;
+	float: left;
+	padding: 40px;
+	text-align: justify;
+}
+
+#news article a{
+	color : #FF931C;
+}
+
+#pagination{
+	padding: 10px;
+}
+
+#pagination ul li{
+	display:inline-block;
+	margin-right: 10px;
+}
+#pagination ul li a{
+	color: #FF931C;
+	text-decoration: none;
+}
+
+form{
+	padding: 40px;
+}
+
+input{
+	margin-bottom: 20px;
+}
+
+u{
+	background-color: yellow;
+}
+@media(max-width: 1666px){
+    main{
+        width: calc(100% - 200px);
+    }
+    
+}
