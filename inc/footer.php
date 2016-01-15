@@ -8,7 +8,7 @@
 	    $('.flexslider').flexslider({
 	        slideshowSpeed: 1500,
 	        animation: "slide",
-	        direction: "vertical",
+	        direction: "horizontal",
 	    });
 	  });
 	</script>
