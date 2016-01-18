@@ -74,21 +74,61 @@ if(!empty($_POST)){
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        body{
+            background-color: #046380;
+            text-align: center;
+            height: 100vh;
+        }
+        #connexion{
+            width: 250px;
+            height: 180px;
+            padding: 15px;
+            margin: auto;
+            position: relative;
+            top: calc(50% - 180px);
+        }
+        input{
+            display: inline-block;
+        }
+        fieldset{
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+        }
+        a{
+            color: white;
+        }
+        p{
+            background-color: white;
+            border-radius: 5px;
+        }
+        .error{
+            color: red;
+        }
+        button{
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Connexion</h1>
-    <form method="post">
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email">
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" id="password">
-        <button type="submit">Envoyer</button>
-    </form>
-    <a href="tokenpwd.php">Mot de passe oublié ?</a>
-    <?php
-        if($errorsForm){
-            echo '<p class="error">'.implode('<br>', $error).'</p>';
-        }
-    ?>
+   <div id="connexion">
+        <form method="post">
+            <fieldset>
+                <legend>Connexion</legend>
+                <br><label for="email">Email</label>
+                <br><input type="text" name="email" id="email">
+                <br><label for="password">Mot de passe</label>
+                <br><input type="password" name="password" id="password">
+                <br><button type="submit">Envoyer</button>
+            </fieldset>
+        </form>
+        <a href="tokenpwd.php">Mot de passe oublié ?</a>
+        <?php
+            if($errorsForm){
+                echo '<p class="error">'.implode('<br>', $error).'</p>';
+            }
+        ?>
+    </div>
 </body>
 </html>
