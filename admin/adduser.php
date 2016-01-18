@@ -35,9 +35,6 @@ if(!empty($_POST)){
 	if(!preg_match('/^[\w.-]+@[\w.-]+\.[a-z{2,}$/i]')){
 		$error[] = 'L\'email ne peut être vide';
 	}
-	elseif(!filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
-			$error[] = 'L\'adresse email est incorrecte';	
-	}
     else{
         $checkEmail = $bdd->prepare('SELECT * FROM users WHERE email = :email');
         $checkEmail->bindValue(':email', $post['email'], PDO::PARAM_STR);
