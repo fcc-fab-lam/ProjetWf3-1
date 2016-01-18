@@ -29,36 +29,31 @@ if(!empty($_POST)){
         $error[] = 'Le prénom ne peut être vide.';
     }
     
-    if(!is_numeric($post['telephone'])){
-        $error[] = 'Le téléphone doit contenir des chiffres.';
-    }
-    elseif(strlen($post['telephone']) < 10){
-        $error[] = 'Le téléphone doit comporter au moins 10 chiffres.';
+    if(!preg_match('/^0+[0-9]{9}$/', $post['telephone'])){
+        $error[] = 'Le téléphone doit contenir 10 chiffres.';
     }
     
-    if(empty($post['email'])){
-        $error[] = 'Le prénom ne peut être vide.';
-    }
-	elseif(!filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
-			$error[] = 'L\'adresse email est incorrecte';	
+    if (!preg_match('/^[\w.-]+@[\w.-]+\.[a-z]{2,}$/i', $post['email'])){
+		$error[] = 'L\'adresse email est incorrecte';	
 	}
     
     if(empty($post['titre'])){
-        $error[] = 'Le prénom ne peut être vide.';
+        $error[] = 'Le titre ne peut être vide.';
     }
     
     if(empty($_FILES['avatar']['size'])){
-        $err[] = 'L\'image ne peut être vide';        
+        $error[] = 'L\'image ne peut être vide';        
     }
     elseif($_FILES['avatar']['size'] > $maxFileSize){
-        $err[] = 'Le fichier image est trop gros !';
+        $error[] = 'Le fichier image est trop gros !';
     }
     else{
         $fileMimeType = $finfo->file($_FILES['avatar']['tmp_name'], FILEINFO_MIME_TYPE);
         if(!in_array($fileMimeType, $mimeTypeAllowed)){
-            $err[] = 'Le fichier n\'est pas une image';
+            $error[] = 'Le fichier n\'est pas une image';
         }
     }
+
     
     if(count($error) > 0){
         $formError = true;
@@ -115,6 +110,7 @@ include_once 'inc/header.php';
     if(!empty($errorSql)){
         echo '<p class="error">'.implode('<br>', $errorSql).'</p>';
     }
+    var_dump($_FILES);
 ?>
 <?php
     if($formError){

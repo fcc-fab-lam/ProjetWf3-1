@@ -18,12 +18,11 @@ if(!empty($_POST)){
 	foreach($_POST as $key => $value){
 		$post[$key] = trim(strip_tags($value));
 	 }
-	 if(empty($post['title'])){
-	 	$error[] = 'Le titre est obligatoire';
-	 }
+	 if(!preg_match('/^.{4,255}$/', $post['title'])){
+   		$error[] = 'Le titre est obligatoire';	 }
 
-	if(empty($post['content'])){
-		$error[] = 'Le contenu est obligatoire';
+	 if(!preg_match('/^.{20,}$/', $post['content'])){
+   		$error[] = 'Le contenu est obligatoire';
 	}
 
 	if(count($error) > 0){
