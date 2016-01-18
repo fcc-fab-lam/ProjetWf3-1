@@ -15,6 +15,11 @@
         {
             "name": "Bertrand",
             "email": "bertrand0214@hotmail.com"
+        },
+		{
+            "name": "Axel Wargnier",
+            "email": "axel.wargnier@gmail.com",
+            "role": "Crazy Formatter !"
         }
     ],
     "minimum-stability": "stable"
