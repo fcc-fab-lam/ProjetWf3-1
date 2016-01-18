@@ -32,7 +32,7 @@ if(!empty($_POST)){
 		$error[] = 'Le pseudo doit contenir au moins 3 caractères.';
 	}
 	
-	if(empty($post['email'])){
+	if(!preg_match('/^[\w.-]+@[\w.-]+\.[a-z{2,}$/i]')){
 		$error[] = 'L\'email ne peut être vide';
 	}
 	elseif(!filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
@@ -50,14 +50,10 @@ if(!empty($_POST)){
         }
     }
     
-	if(empty($post['password'])){
+	if(!preg_match('/^[\w]{8,20}$/')){
 		$error[] = 'Le mot de passe ne peut être vide';
 	}
-	else { 
-		if(strlen($post['password']) < 8){
-			$error[] = 'Le mot de passe doit contenir au moins 8 caractères';
-		}
-	}
+    
     if(empty($post['role'])){
         $error[] = 'Choisissez un rôle pour cet utilisateur.';
     }
