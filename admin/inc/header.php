@@ -10,6 +10,14 @@ if(isset($_SESSION['pseudo'])){
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script>
+    tinymce.init({
+    selector: 'textarea',
+    plugins: "textcolor emoticons",
+    toolbar: "bold italic | emoticons | forecolor | alignleft aligncenter alignright alignjustify | bullist numlist | removeformat "
+  });
+  </script>
     <title>BackOffice</title>
 </head>
 <body>

@@ -2,7 +2,7 @@
     $titrePage = 'Les news';
     require_once 'inc/dbconnect.php';
     include_once 'inc/header.php'; 
-	$rep = $bdd->prepare('SELECT * FROM news');
+	$rep = $bdd->prepare('SELECT * FROM news ORDER BY publication_date DESC');
 	$rep->execute();
 	$art2 = $rep->fetchAll(PDO::FETCH_ASSOC);
 
@@ -15,7 +15,7 @@
 			<div id="image">
 				<img src="#" alt="">
 			</div>
-			<p><?php echo $value['content'];?></p>
+			<p><?php echo (htmlspecialchars_decode($value['content']));?></p>
 		</article>
 	<?php } ?>
     </section>

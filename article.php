@@ -28,7 +28,7 @@
 
 
 		<article>
-			<p><?php echo $art['content'];?></p>
+			<p><?php echo (htmlspecialchars_decode($art['content']));?></p>
 		</article>
 		
 <?php include_once 'inc/footer.php'; ?>

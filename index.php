@@ -61,7 +61,7 @@
 		<?php foreach ($art as $key => $value) { ?>
 			<article>
 				<a href="article.php?id=<?php echo $value['id']?>"><h3><?php echo $value['title'];?></h3></a>
-				<p><?php echo mb_substr($value['content'], 0, 500); ?><a href="article.php?id=<?php echo $value['id']?>"> Lire la suite...</a></p>
+				<p><?php echo mb_substr(htmlspecialchars_decode($value['content']), 0, 500); ?><a href="article.php?id=<?php echo $value['id']?>"> Lire la suite...</a></p>
 			</article>
 		<?php } ?>
 
