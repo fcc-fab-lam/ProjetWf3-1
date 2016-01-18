@@ -30,7 +30,8 @@
     }
 
 ?>
-	<h3><?php echo $contact['email'].' envoyé le '.date('j F Y \à H:i', strtotime($contact['date'])); ?></h3>
+	<h3><?php echo 'Message de '.$contact['lastname'].' '.$contact['firstname'].' envoyé le '.date('j F Y \à H:i', strtotime($contact['date'])); ?></h3>
+	<p><?php echo $contact['email']; ?></p>
 	<p><?php echo $contact['subject']; ?></p>
 	<p><?php echo nl2br($contact['message']); ?></p>
 

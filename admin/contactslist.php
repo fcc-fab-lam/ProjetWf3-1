@@ -12,7 +12,7 @@ include_once 'inc/header.php';
 	<h3>Liste de contact</h3>
 	<ul>
 	<?php foreach ($contacts as $value): ?>
-		<li<?php if($value['new'] == 'yes'){echo ' class="newContact"';}?>><a href="readcontact.php?id=<?php echo $value['id']; ?>">Message de : <?php echo $value['email'].' Objet : '.$value['subject'].'<br> envoyé le '.date('j F Y \à H:i', strtotime($value['date'])); ?></a></li>	
+		<li<?php if($value['new'] == 'yes'){echo ' class="newContact"';}?>><a href="readcontact.php?id=<?php echo $value['id']; ?>">Message de : <?php echo $value['lastname'].' '.$value['firstname'].' Objet : '.$value['subject'].'<br> envoyé le '.date('j F Y \à H:i', strtotime($value['date'])); ?></a></li>	
 	<?php endforeach; ?>
 	</ul>
 

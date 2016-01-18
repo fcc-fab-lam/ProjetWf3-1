@@ -4,7 +4,7 @@
 	require_once  'inc/dbconnect.php';
 	include_once 'inc/header.php';
 
-	require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+	require 'vendor/autoload.php';
 
 ?>
 
@@ -20,11 +20,14 @@ if(!empty($_POST)){
 	foreach($_POST as $key => $value){
 		$post[$key] = trim(strip_tags($value));
 	 }
-	if(empty($post['email'])){
+    if (!preg_match('/^[\w.-]+@[\w.-]+\.[a-z]{2,}$/i', $post['email'])){
 		$error[] = 'L\'adresse email est obligatoire';
 	}
-	elseif(!filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
-		$error[] = 'L\'adresse email est invalide';
+	if (!preg_match('/^[A-Z]+[a-zA-Z\s-]/', $post['lastname'])){
+		$error[]= 'le nom doit commencer par une majuscule';
+	}
+	if (!preg_match('/^[A-Z]+[a-zA-Z\s-]/', $post['firstname'])){
+	$error[]= 'le prénom doit commencer par une majuscule';
 	}
 	if(empty($post['subject'])){
 		$error[] = 'Le sujet est obligatoire';
@@ -38,8 +41,10 @@ if(!empty($_POST)){
 		$formError = true;
 	}
 	else {
-		$req = $bdd->prepare('INSERT INTO contact (email, message, new, date, subject) VALUES(:email, :message, "yes", NOW(), :subject)');
+		$req = $bdd->prepare('INSERT INTO contact (email, lastname, firstname, message, new, date, subject) VALUES(:email, :lastname, :firstname, :message, "yes", NOW(), :subject)');
 		$req->bindValue(':email', $post['email'], PDO::PARAM_STR);
+		$req->bindValue(':lastname', $post['lastname'], PDO::PARAM_STR);
+		$req->bindValue(':firstname', $post['firstname'], PDO::PARAM_STR);
 		$req->bindValue(':subject', $post['subject'], PDO::PARAM_STR);
 		$req->bindValue(':message', $post['message'], PDO::PARAM_STR);
 		if($req->execute()){
@@ -54,9 +59,8 @@ if(!empty($_POST)){
 			$mail->SMTPSecure = 'TLS';                            // Enable TLS encryption, `ssl` also accepted
 			$mail->Port = 587;                                    // TCP port to connect to
 
-			$mail->setFrom($post['email'], 'Mailer' );
+			$mail->setFrom($post['email'], $post['lastname'].' '.$post['firstname']);
 			$mail->addAddress('michael.mann.the.god.of.cinema@gmail.com');               // Name is optional
-			$mail->addReplyTo('lilith.emy@gmail.com', 'Information');
 
 			$mail->isHTML(true);                                  // Set email format to HTML
 
@@ -85,6 +89,12 @@ if(!empty($_POST)){
 <form method="post">
   		<label for="email">Votre email</label>
   		<br><input type="email" name="email" id="email" placeholder ="Ecrivez votre Email">
+
+  		<br><label for="lastname">Nom</label>
+  		<br><textarea name="lastname" placeholder ="Nom..."></textarea>
+
+  		<br><label for="firstname">Prénom</label>
+  		<br><textarea name="firstname" placeholder ="Prénom..."></textarea>
   		
   		<br><label for="subject">Sujet de votre message</label>
   		<br><textarea name="subject" placeholder ="Sujet..."></textarea>
