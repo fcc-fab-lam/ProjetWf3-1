@@ -14,23 +14,18 @@ if(isset($_GET['logout'])){
 		die;
 	}
 	else{
-		$error = '<strong> Don\'t Fuck with me asshole !</strong>';
+		$error = '<strong> Don\'t fuck with me asshole !</strong>';
 	}
 }
 
 include_once 'inc/header.php';
 ?>
-<?php if(isset($_SESSION['logout']) && isset($_SESSION['userId']) && isset($_SESSION['role']));
-echo 'Voulez-vous vraiment vous deconnecter ?'
-?>
- 
-<a href="logout.php?logout=yes">Oui, je souhaite me déconnecter</a>
-<a href="logout.php?logout=no">Non, je ne souhaite pas me déconnecter</a>
-<?php 
-if(isset($error)){
-	echo '<p class="error">'.$error.'</p>';
-}
-
-?>
+    <?php if(isset($_SESSION['userId']) && isset($_SESSION['role'])): ?>
+    <p>Voulez-vous vraiment vous deconnecter ?</p>
+    <p><a href="logout.php?logout=yes">Oui, je souhaite me déconnecter</a></p>
+    <p><a href="logout.php?logout=no">Non, je ne souhaite pas me déconnecter</a></p>
+    <?php endif; ?>
+    <?php 
+    if(isset($error)){echo '<p class="error">'.$error.'</p>';} ?>
 
 <?php include_once 'inc/footer.php'; ?>

@@ -13,7 +13,7 @@ if(isset($_GET['token'])){
         $verifToken = $prep->fetch(PDO::FETCH_ASSOC);
         if (empty($verifToken)){
             echo var_dump($verifToken);
-            header('Location: tokenpwd.php');
+            header('Location: tokenpwd.php?error=yes');
             die;
         } else {
 
@@ -31,8 +31,8 @@ if(isset($_GET['token'])){
                         $prep2->bindValue(':email', $post['email'], PDO::PARAM_STR);
                         $prep2->bindValue(':password', password_hash($post['password'], PASSWORD_DEFAULT));
                         if($prep2->execute()){
-                            $supp = $bdd->prepare('DELETE FROM tokens WHERE token=:token');
-                            $supp->bindValue(':token', $_GET['token'], PDO::PARAM_STR);
+                            $supp = $bdd->prepare('DELETE FROM tokens WHERE email=:email');
+                            $supp->bindValue(':email', $post['email'], PDO::PARAM_STR);
                             $supp->execute();
 
                             header('Location: index.php');
