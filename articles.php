@@ -2,7 +2,7 @@
     $titrePage = 'Les news';
     require_once 'inc/dbconnect.php';
     include_once 'inc/header.php'; 
-	$rep = $bdd->prepare('SELECT * FROM news ORDER BY publication_date DESC');
+	$rep = $bdd->prepare('SELECT * FROM news WHERE category IN(SELECT id FROM categories WHERE id=4) ORDER BY publication_date DESC');
 	$rep->execute();
 	$art2 = $rep->fetchAll(PDO::FETCH_ASSOC);
 
