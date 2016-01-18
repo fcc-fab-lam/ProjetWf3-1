@@ -5,21 +5,24 @@
     },
     "authors": [
         {
-            "name": "Fabien Lamon",
-            "email": "fabien.lamon@gmail.com"
+			"name": "Fabien Lamon",
+			"email": "fabien.lamon@gmail.com",
+			"role": "Developper"
         },
         {
-            "name": "Emilie",
-            "email": "lilith.emy@gmail.com"
+			"name": "Emilie",
+			"email": "lilith.emy@gmail.com",
+			"role": "Developper"
         },
         {
-            "name": "Bertrand",
-            "email": "bertrand0214@hotmail.com"
+			"name": "Bertrand",
+			"email": "bertrand0214@hotmail.com",
+			"role": "Developper"
         },
 		{
-            "name": "Axel Wargnier",
-            "email": "axel.wargnier@gmail.com",
-            "role": "Crazy Formatter !"
+			"name": "Axel Wargnier",
+			"email": "axel.wargnier@gmail.com",
+			"role": "Crazy Formatter !"
         }
     ],
     "minimum-stability": "stable"
