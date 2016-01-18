@@ -32,7 +32,7 @@ if(!empty($_POST)){
 		$error[] = 'Le pseudo doit contenir au moins 3 caractères.';
 	}
 	
-	if(!preg_match('/^[\w.-]+@[\w.-]+\.[a-z{2,}$/i]')){
+	if(!preg_match('/^[\w.-]+@[\w.-]+\.[a-z]{2,}$/i',$post['email'])){
 		$error[] = 'L\'email ne peut être vide';
 	}
     else{
@@ -47,7 +47,7 @@ if(!empty($_POST)){
         }
     }
     
-	if(!preg_match('/^[\w]{8,20}$/')){
+	if(!preg_match('/^[\w]{8,20}$/',$post['password'])){
 		$error[] = 'Le mot de passe ne peut être vide';
 	}
     
