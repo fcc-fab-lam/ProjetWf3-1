@@ -25,7 +25,7 @@
 	}
 	$start = ($pageCourante - 1) * $artParPage;
 
-	$rep = $bdd->prepare('SELECT * FROM news WHERE category IN(SELECT id FROM categories WHERE id=5) ORDER BY publication_date DESC LIMIT :start, :maxi');
+	$rep = $bdd->prepare('SELECT * FROM news WHERE category ORDER BY publication_date DESC LIMIT :start, :maxi');
 	$rep->bindParam(':start', $start, PDO::PARAM_INT);
 	$rep->bindParam(':maxi', $artParPage, PDO::PARAM_INT);
 	if($rep->execute()){
