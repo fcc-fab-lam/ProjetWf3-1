@@ -91,13 +91,13 @@ if(!empty($_POST)){
   		<br><input type="email" name="email" id="email" placeholder ="Ecrivez votre Email">
 
   		<br><label for="lastname">Nom</label>
-  		<br><textarea name="lastname" placeholder ="Nom..."></textarea>
+  		<br><input name="lastname" placeholder ="Nom...">
 
   		<br><label for="firstname">Prénom</label>
-  		<br><textarea name="firstname" placeholder ="Prénom..."></textarea>
+  		<br><input name="firstname" placeholder ="Prénom...">
   		
   		<br><label for="subject">Sujet de votre message</label>
-  		<br><textarea name="subject" placeholder ="Sujet..."></textarea>
+  		<br><input name="subject" placeholder ="Sujet...">
 
   		<br><label for="textarea">Votre message</label>
   		<br><textarea name="message" placeholder ="Ecrivez votre Message"></textarea>
