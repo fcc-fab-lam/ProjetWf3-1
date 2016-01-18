@@ -15,6 +15,10 @@ require_once 'inc/dbconnect.php';
 $req1 = $bdd->prepare('SELECT * FROM roles');
 $req1->execute();
 $roles = $req1->fetchAll(PDO::FETCH_ASSOC);
+$verifRoles = array();
+foreach($roles as $value){
+    $verifRoles[] = $value['id'];
+}
 
 $formValid = false;
 $errorsForm = false;
@@ -60,7 +64,7 @@ if(!empty($_POST)){
 	elseif(!is_numeric($post['role'])){
         $error[] = 'Merci de ne pas jouer au petit malin 1ere sommation !';		
 	}
-    elseif(!in_array($post['role'], $roles)){
+    elseif(!in_array($post['role'], $verifRoles)){
         $error[] = 'Merci de ne pas jouer au petit malin 2eme sommation !';
     }
     
@@ -69,12 +73,19 @@ if(!empty($_POST)){
 	}
 	else {
         // On stocke les données en base de données
-        $req = $bdd->prepare('INSERT INTO users (email, nickname, password, role) VALUES(:email, :password, :role)');
-        $req->bindValue(':email', $post['email'], PDO::PARAM_STR);
+        $req = $bdd->prepare('INSERT INTO users (email, nickname, password, id_role) VALUES(:email, :nickname, :password, :role)');
+        $req->bindValue(':email', $post['email']);
+        $req->bindValue(':nickname', $post['nickname']);
         $req->bindValue(':password', password_hash($post['password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
-        $req->bindValue(':role', $post['role'], PDO::PARAM_STR);
+        $req->bindValue(':role', $post['role'], PDO::PARAM_INT);
         if($req->execute()){
             $formValid = true;
+            echo 'ok';
+            var_dump($_POST);
+        }
+        else{
+            echo 'nok';
+            var_dump($_POST);
         }
 	}
 }
@@ -106,7 +117,7 @@ include_once 'inc/header.php';
 
     <?php 
     if($errorsForm){
-		echo implode('<br>', $error);
+		echo '<p class="error">'.implode('<br>', $error).'</p>';
 	}
     ?>
 <?php include_once 'inc/footer.php'; ?>

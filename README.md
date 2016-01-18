@@ -2,7 +2,7 @@
 Projet en équipe Webforce3
 
 ## Contributors :
-Emilie, Fabien, Bertrand C.
+Emilie, Fabien, Bertrand C., Guillaume 
 
 ### Infos SMTP : 
 ```
